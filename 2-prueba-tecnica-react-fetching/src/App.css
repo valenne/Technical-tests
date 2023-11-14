@@ -1,0 +1,24 @@
+html {
+	box-sizing: border-box;
+	margin: 0 auto;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	place-items: center;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+main > section {
+	display: flex;
+	flex-direction: row;
+	gap: 2em;
+	place-items: center;
+}
+section img {
+	max-width: 400px;
+	height: auto;
+}

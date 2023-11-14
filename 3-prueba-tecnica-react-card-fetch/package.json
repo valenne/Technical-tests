@@ -1,0 +1,38 @@
+{
+	"name": "2-prueba-tecnica-react-dos",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"test" : "vitest"
+	},
+	"devDependencies": {
+		"@testing-library/react": "^14.1.0",
+		"@testing-library/user-event": "^14.5.1",
+		"@types/react": "^18.2.37",
+		"@types/react-dom": "^18.2.15",
+		"autoprefixer": "^10.4.16",
+		"happy-dom": "^12.10.3",
+		"postcss": "^8.4.31",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-router-dom": "^6.18.0",
+		"tailwindcss": "^3.3.5",
+		"ts-standard": "^12.0.2",
+		"typescript": "^5.0.2",
+		"vite": "^4.4.5",
+		"vitest": "^0.34.6"
+	},
+	"dependencies": {
+		"@vitejs/plugin-react": "4.1.1"
+	},
+	"ts-standard": {
+		"project": "./tsconfig.json"
+	},
+	"eslintConfig": {
+		"extends": "./node_modules/ts-standard/eslintrc.json"
+	}
+}
