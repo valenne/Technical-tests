@@ -31,7 +31,6 @@ function App () {
       .then(data => {
         const id = data._id
         const url = `https://cataas.com/cat/cute/says/${threeWordsSplitArgument}`
-        console.log(url)
         setImageUrl({ id, url })
       })
   }, [fact])
