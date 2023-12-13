@@ -1,0 +1,116 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+*,
+html {
+  box-sizing: border-box;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(min-content, 450px) minmax(auto, 1fr);
+  gap: 64px;
+}
+
+@media screen and (width < 840px) {
+  main {
+    grid-template-columns: minmax(min-content, 450px);
+  }
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 1.1em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+aside > h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid gray;
+  border-radius: 20px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+form > label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9em;
+  /* overflow: hidden; */
+  text-overflow: clip;
+  text-wrap: nowrap;
+  gap: 20px;
+  padding: 4px;
+}
+
+@media screen and (width < 630px) {
+  form > label {
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+input:focus,
+input:active {
+  border: deepskyblue;
+  outline-style: solid;
+  outline-color: deepskyblue;
+  border: 1px solid deepskyblue;
+}
+
+form > label > input {
+  padding: 8px 12px;
+  font-size: 16px;
+  width: 100%;
+  max-width: fit-content;
+  height: 100%;
+  border: 1px solid deepskyblue;
+}
+
+form > button {
+  width: fit-content;
+}
+
+.input_p_element {
+  color: red;
+  display: none;
+  padding: 3px;
+  font-size: 12px;
+}
+
+input:invalid[data-focus='true'] ~ .input_p_element {
+  display: block;
+}
+
+input:invalid[data-focus='true'] {
+  border: 1px solid red;
+}
