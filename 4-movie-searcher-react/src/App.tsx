@@ -35,7 +35,8 @@ function App() {
             </label>
             <button
               className='font-semibold px-4 py-2 rounded-md w-fit mx-auto shadow-sm hover:shadow-lg bg-yellow-500 border border-black hover:border-yellow-500 text-black hover:text-white hover:bg-black ease-in transition-all duration-300'
-              type='submit'>
+              type='submit'
+              name='button-movie'>
               Buscar
             </button>
           </form>

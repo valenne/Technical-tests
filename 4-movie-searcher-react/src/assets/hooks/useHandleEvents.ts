@@ -8,6 +8,7 @@ export const useHandleEvents = (
     event.preventDefault()
     const value = event.currentTarget
     const controlSubmit = typeControl({ element: value, namedElement: 'query-input' })
+    console.log(controlSubmit)
 
     const isInput = controlSubmit instanceof HTMLInputElement
     if (!isInput || controlSubmit === null) return
