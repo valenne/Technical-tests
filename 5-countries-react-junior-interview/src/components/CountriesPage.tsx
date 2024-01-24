@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import { CountryProps } from '../country.type'
 import { useFetchCountry } from '../hook/useFetch'
+import { useSEO } from '../hook/useSEO'
 import CardCountry from './CardCountry'
 
 const BASE_URL = `https://restcountries.com/v3.1`
 
 // render component
 export default function CountriesPage() {
-  const { countries, loading } = useFetchCountry(BASE_URL)
   const [inputValue, setInputValue] = useState<string>('')
+  const { countries, loading } = useFetchCountry(BASE_URL, inputValue)
+  useSEO('Prueba Tecnica')
 
+  // MIRAR SI USO HANDLEONCHANGE OR HANDLESUBMIT
   const handleOnChange = (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault()
     const input = e.currentTarget
@@ -17,7 +20,9 @@ export default function CountriesPage() {
 
     if (!isInput || isInput == null) return
 
-    setInputValue(input.value)
+    const value = input.value.trimStart()
+
+    setInputValue(value)
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -42,7 +47,7 @@ export default function CountriesPage() {
         className='flex flex-row items-center justify-center mb-10'
         onSubmit={handleSubmit}>
         <div className='p-5 flex flex-row gap-2 items-center'>
-          <label htmlFor='capitalId'>Searching a capital: </label>
+          <label htmlFor='capitalId'>Filter by capital: </label>
           <input
             id='capitalId'
             type='text'
@@ -50,9 +55,13 @@ export default function CountriesPage() {
             onChange={handleOnChange}
             name='capital'
             placeholder='Taipei'
-            className='p-2 rounded-md'
+            className='p-2 rounded-md ring-1 ring-transparent hover:ring-teal-500 outline-none focus:ring-red-teal active:ring-yellow-500 visited:ring-orange-500 duration-100 ease-linear transition-all'
           />
-          <button>Search</button>
+          <button
+            className='border-yellow-500 p-2 hover:border-yellow-600'
+            type='submit'>
+            Search
+          </button>
         </div>
       </form>
       <ul className='flex flex-row gap-5 flex-wrap w-full container'>

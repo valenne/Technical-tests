@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { CountryProps } from '../country.type'
+import { filteredByCapital } from '../utils/filteredByCapital'
 
 // fetching countries
-export const useFetchCountry = (url: string) => {
+export const useFetchCountry = (url: string, filter: string) => {
   const [countries, setCountries] = useState<CountryProps[]>([])
   const [loading, setLoading] = useState<boolean>(false)
 
@@ -40,5 +41,8 @@ export const useFetchCountry = (url: string) => {
       })
   }, [url])
 
-  return { countries, loading }
+  // filter by capital
+  const { filtered } = filteredByCapital({ data: countries, filter })
+
+  return { countries: filtered, loading, setCountries }
 }
