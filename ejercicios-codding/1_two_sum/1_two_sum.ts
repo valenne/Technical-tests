@@ -1,7 +1,7 @@
 const nums = [1, 2, 3, 7, 5]
 const target = 9
 
-function twoSum(nums: number[], target: number): number[] | false {
+function twoSum(nums: number[], target: number): number[] | boolean {
   let dictionary: { [key: string]: number } = {}
   let diff: number
 
