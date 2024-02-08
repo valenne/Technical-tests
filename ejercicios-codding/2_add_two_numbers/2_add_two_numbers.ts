@@ -5,6 +5,14 @@ type ListProps = {
 
 function addTwoNumbers({ l1, l2 }: ListProps): number[] | string {
   const containTwoDigit = (list: number[]) => {
+    const justNumbers = list.map((num) => (typeof num === 'number' ? 1 : -1))
+
+    if (!justNumbers.indexOf(-1)) {
+      return {
+        hasError: true,
+        msg: `An element from an array is different from type number`
+      }
+    }
     if (!list) {
       return {
         hasError: true,
@@ -52,10 +60,10 @@ function addTwoNumbers({ l1, l2 }: ListProps): number[] | string {
 }
 
 const result_1 = addTwoNumbers({ l1: [2, 4, 3], l2: [5, 6, 4] })
-const result_2 = addTwoNumbers({ l1: [0], l2: [0] })
+const result_2 = addTwoNumbers({ l1: [2], l2: [0] })
 const result_3 = addTwoNumbers({ l1: [9, 9, 9, 9, 9, 9, 9], l2: [9, 9, 9, 9] })
 const result_emptyArray = addTwoNumbers({ l1: [], l2: [1, 2, 3] })
-const result_doubleDigit = addTwoNumbers({ l1: [22, 1, 3], l2: [0, 1, 2] })
+const result_doubleDigit = addTwoNumbers({ l1: [3, 1, 3], l2: [0, 1, 2] })
 
 console.log({
   result_1,
