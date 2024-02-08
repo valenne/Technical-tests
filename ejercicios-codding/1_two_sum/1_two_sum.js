@@ -1,10 +1,9 @@
-"use strict";
-const nums = [1, 2, 3, 7, 5];
-const target = 9;
+var nums = [1, 2, 3, 7, 5];
+var target = 9;
 function twoSum(nums, target) {
-    let dictionary = {};
-    let diff;
-    for (let i = 0; i < nums.length; i++) {
+    var dictionary = {};
+    var diff;
+    for (var i = 0; i < nums.length; i++) {
         diff = target - nums[i];
         if (Object.keys(dictionary).includes(diff.toString())) {
             return [dictionary[diff], i];
@@ -15,6 +14,5 @@ function twoSum(nums, target) {
     }
     return false;
 }
-const numberResponse = twoSum(nums, target);
+var numberResponse = twoSum(nums, target);
 console.log(numberResponse);
-//# sourceMappingURL=1_two_sum.js.map
