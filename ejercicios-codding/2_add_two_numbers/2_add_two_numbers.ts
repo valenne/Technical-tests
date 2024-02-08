@@ -4,20 +4,38 @@ type ListProps = {
 }
 
 function addTwoNumbers({ l1, l2 }: ListProps): number[] | string {
-  if (!l1 || !l2) {
-    return `An array is undefined`
-  }
-  if (l1.length === 0 || l2.length === 0) {
-    return `An array is empty`
-  }
-
   const containTwoDigit = (list: number[]) => {
-    if (list.length === list.join('').length) return false
-    return true
+    if (!list) {
+      return {
+        hasError: true,
+        msg: `Not exist array to evaluate`
+      }
+    }
+    if (list.length === 0) {
+      return {
+        hasError: true,
+        msg: `An array contains 0 elements`
+      }
+    }
+
+    if (list.length !== list.join('').length) {
+      return {
+        hasError: true,
+        msg: `An array contain double digit in one index`
+      }
+    }
+    return {
+      hasError: false,
+      msg: ''
+    }
   }
 
-  if (containTwoDigit(l1) || containTwoDigit(l2)) {
-    return `one number contain double digit`
+  const error =
+    (containTwoDigit(l1).hasError && containTwoDigit(l1)) ||
+    (containTwoDigit(l2).hasError && containTwoDigit(l2))
+
+  if (error) {
+    return error.msg
   }
 
   const reversedSum = Number(l1.reverse().join('')) + Number(l2.reverse().join(''))
@@ -36,7 +54,7 @@ function addTwoNumbers({ l1, l2 }: ListProps): number[] | string {
 const result_1 = addTwoNumbers({ l1: [2, 4, 3], l2: [5, 6, 4] })
 const result_2 = addTwoNumbers({ l1: [0], l2: [0] })
 const result_3 = addTwoNumbers({ l1: [9, 9, 9, 9, 9, 9, 9], l2: [9, 9, 9, 9] })
-const result_emptyArray = addTwoNumbers({ l1: [], l2: [9, 9, 9, 9] })
+const result_emptyArray = addTwoNumbers({ l1: [], l2: [1, 2, 3] })
 const result_doubleDigit = addTwoNumbers({ l1: [22, 1, 3], l2: [0, 1, 2] })
 
 console.log({
