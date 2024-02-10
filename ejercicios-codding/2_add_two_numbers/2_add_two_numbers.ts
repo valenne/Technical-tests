@@ -3,41 +3,41 @@ type ListProps = {
   l2: number[]
 }
 
-function addTwoNumbers({ l1, l2 }: ListProps): number[] | string {
-  const containTwoDigit = (list: number[]) => {
-    const justNumbers = list.map((num) => (typeof num === 'number' ? 1 : -1))
+const containTwoDigit = (list: number[]) => {
+  const justNumbers = list.map((num) => (typeof num === 'number' ? 1 : -1))
 
-    if (!justNumbers.indexOf(-1)) {
-      return {
-        hasError: true,
-        msg: `An element from an array is different from type number`
-      }
-    }
-    if (!list) {
-      return {
-        hasError: true,
-        msg: `Not exist array to evaluate`
-      }
-    }
-    if (list.length === 0) {
-      return {
-        hasError: true,
-        msg: `An array contains 0 elements`
-      }
-    }
-
-    if (list.length !== list.join('').length) {
-      return {
-        hasError: true,
-        msg: `An array contain double digit in one index`
-      }
-    }
+  if (!justNumbers.indexOf(-1)) {
     return {
-      hasError: false,
-      msg: ''
+      hasError: true,
+      msg: `An element from an array is different from type number`
+    }
+  }
+  if (!list) {
+    return {
+      hasError: true,
+      msg: `Not exist array to evaluate`
+    }
+  }
+  if (list.length === 0) {
+    return {
+      hasError: true,
+      msg: `An array contains 0 elements`
     }
   }
 
+  if (list.length !== list.join('').length) {
+    return {
+      hasError: true,
+      msg: `An array contain double digit in one index`
+    }
+  }
+  return {
+    hasError: false,
+    msg: ''
+  }
+}
+
+function addTwoNumbers({ l1, l2 }: ListProps): number[] | string {
   const error =
     (containTwoDigit(l1).hasError && containTwoDigit(l1)) ||
     (containTwoDigit(l2).hasError && containTwoDigit(l2))

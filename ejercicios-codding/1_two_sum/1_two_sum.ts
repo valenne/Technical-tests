@@ -1,14 +1,23 @@
-const nums = [1, 2, 3, 7, 5]
-const target = 9
+const nums = [1, 2, 2, 2, 5]
+const target = 6
 
 function twoSum(nums: number[], target: number): number[] | boolean {
   let dictionary: { [key: string]: number } = {}
-  let diff: number
+  let diff: number = 0
 
   for (let i = 0; i < nums.length; i++) {
     diff = target - nums[i]
 
-    if (Object.keys(dictionary).includes(diff.toString())) {
+    // let findElementByFind = Object.keys(dictionary).find((num) => num === diff.toString()) && true
+    let findElementByIndexOf = Object.keys(dictionary).indexOf(diff.toString()) >= 0
+
+    if (findElementByIndexOf) {
+      return [dictionary[diff], i]
+    } else {
+      dictionary[nums[i]] = i
+    }
+
+    if (findElementByIndexOf) {
       return [dictionary[diff], i]
     } else {
       dictionary[nums[i]] = i
