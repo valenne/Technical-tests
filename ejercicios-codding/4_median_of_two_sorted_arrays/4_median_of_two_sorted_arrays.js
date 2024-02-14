@@ -15,7 +15,6 @@ function findMedianSortedArrays(nums1, nums2) {
     var typeOfDiffFromNumber = sortedArray
         .map(function (value) { return (typeof value === 'number' ? true : false); })
         .filter(function (isNumber) { return isNumber === true; }).length === n && true;
-    console.log(sortedArray);
     var median = -1;
     // validations
     if (!typeOfDiffFromNumber) {

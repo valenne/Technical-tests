@@ -1,14 +1,12 @@
 function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
-  const nArr = [...nums1, ...nums2]
-  const sortedArray = nArr.sort((a, b) => a - b)
-  const n = sortedArray.length
-  const isPar = n % 2 === 0 && true
-  const typeOfDiffFromNumber =
+  const nArr: number[] = [...nums1, ...nums2]
+  const sortedArray: number[] = nArr.sort((a, b) => a - b)
+  const n: number = sortedArray.length
+  const isPar: boolean = n % 2 === 0 && true
+  const typeOfDiffFromNumber: boolean =
     sortedArray
       .map((value) => (typeof value === 'number' ? true : false))
       .filter((isNumber) => isNumber === true).length === n && true
-
-  console.log(sortedArray)
 
   let median: number = -1
 
