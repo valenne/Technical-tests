@@ -11,9 +11,11 @@ function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
   let median: number = -1
 
   // validations
+  // different type from number
   if (!typeOfDiffFromNumber) {
     return median
   }
+  // empty
   if (!Boolean(n)) {
     return median
   }
@@ -32,7 +34,7 @@ function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
 }
 
 const median_1 = findMedianSortedArrays([1, 3], [2]) // output = 2
-const median_2 = findMedianSortedArrays([1, 2], [3, 4]) // 0utput = 2,5
+const median_2 = findMedianSortedArrays([2, 2], [3, 4]) // 0utput = 2,5
 const median_3 = findMedianSortedArrays([2, 5, 11, 8], [16, 21, 30]) // 0utput = 11
 const median_4 = findMedianSortedArrays([3, 5, 10, 8], [79, 36, 255, 24]) // 0utput = 17
 
