@@ -8,7 +8,7 @@ const palindromo = (left: number, rigth: number, text: string) => {
 }
 
 function longestPalindrome(s: string): string | boolean {
-  let longest = ''
+  let longest: string = ''
   const typeVariable = typeof s
 
   // string is empty
@@ -18,7 +18,7 @@ function longestPalindrome(s: string): string | boolean {
     const evenPal = palindromo(i, i + 1, s)
     const oddPal = palindromo(i, i, s)
 
-    let longestPal = evenPal.length > oddPal.length ? evenPal : oddPal
+    let longestPal: string = evenPal.length > oddPal.length ? evenPal : oddPal
 
     if (longestPal.length > longest.length) {
       longest = longestPal
