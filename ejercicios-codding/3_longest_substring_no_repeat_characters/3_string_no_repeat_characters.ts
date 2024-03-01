@@ -5,6 +5,7 @@ interface resultsProps {
 }
 
 function lengthOfLongestSubstring(s: string): number {
+  if (!s) return 0
   const toArray = s.split('')
 
   let results: resultsProps = {
@@ -32,7 +33,7 @@ function lengthOfLongestSubstring(s: string): number {
 const test_1 = lengthOfLongestSubstring('abcabcbb')
 const test_2 = lengthOfLongestSubstring('bbbbb')
 const test_3 = lengthOfLongestSubstring('pwwkew')
-const test_4 = lengthOfLongestSubstring('rtesessadqwer')
+const test_4 = lengthOfLongestSubstring('')
 
 console.table({
   test_1,

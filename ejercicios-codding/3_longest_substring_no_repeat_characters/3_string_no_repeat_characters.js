@@ -1,5 +1,7 @@
 function lengthOfLongestSubstring(s) {
     var toArray = s.split('');
+    if (toArray.length === 0)
+        return 0;
     var results = {
         sum: 0,
         substring: [],
@@ -25,7 +27,7 @@ function lengthOfLongestSubstring(s) {
 var test_1 = lengthOfLongestSubstring('abcabcbb');
 var test_2 = lengthOfLongestSubstring('bbbbb');
 var test_3 = lengthOfLongestSubstring('pwwkew');
-var test_4 = lengthOfLongestSubstring('rtesessadqwer');
+var test_4 = lengthOfLongestSubstring('');
 console.table({
     test_1: test_1,
     test_2: test_2,
