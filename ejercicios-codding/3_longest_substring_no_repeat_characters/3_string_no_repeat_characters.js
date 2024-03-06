@@ -1,36 +1,35 @@
 function lengthOfLongestSubstring(s) {
-    var toArray = s.split('');
-    if (toArray.length === 0)
+    if (s.length <= 0 || s.length >= 5 * Math.pow(10, 4))
         return 0;
-    var results = {
-        sum: 0,
-        substring: [],
-        acum: []
-    };
-    for (var _i = 0, toArray_1 = toArray; _i < toArray_1.length; _i++) {
-        var letter = toArray_1[_i];
-        if (!results.substring.includes(letter)) {
-            results.sum += 1;
-            results.substring.push(letter);
-        }
-        else if (results.substring.includes(letter)) {
-            results.acum.push(results.sum);
-            results.substring.push(letter);
-            results.sum -= 1;
+    if (s.length === 1)
+        return s.length;
+    var longest = 0;
+    var tempSet = new Set();
+    var left = 0;
+    var rigth = 0;
+    while (rigth < s.length) {
+        var letter = s[rigth];
+        if (!tempSet.has(letter)) {
+            tempSet.add(letter);
+            longest = Math.max(longest, tempSet.size);
+            rigth++;
         }
         else {
-            results.sum = 0;
+            tempSet.delete(s[left]);
+            left++;
         }
     }
-    return Math.max.apply(Math, results.acum);
+    return longest;
 }
 var test_1 = lengthOfLongestSubstring('abcabcbb');
 var test_2 = lengthOfLongestSubstring('bbbbb');
 var test_3 = lengthOfLongestSubstring('pwwkew');
 var test_4 = lengthOfLongestSubstring('');
+var test_5 = lengthOfLongestSubstring('enjoyalgorithms');
 console.table({
     test_1: test_1,
     test_2: test_2,
     test_3: test_3,
-    test_4: test_4
+    test_4: test_4,
+    test_5: test_5
 });
