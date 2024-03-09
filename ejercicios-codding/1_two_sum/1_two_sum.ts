@@ -8,14 +8,7 @@ function twoSum(nums: number[], target: number): number[] | boolean {
   for (let i = 0; i < nums.length; i++) {
     diff = target - nums[i]
 
-    // let findElementByFind = Object.keys(dictionary).find((num) => num === diff.toString()) && true
     let findElementByIndexOf = Object.keys(dictionary).indexOf(diff.toString()) >= 0
-
-    if (findElementByIndexOf) {
-      return [dictionary[diff], i]
-    } else {
-      dictionary[nums[i]] = i
-    }
 
     if (findElementByIndexOf) {
       return [dictionary[diff], i]

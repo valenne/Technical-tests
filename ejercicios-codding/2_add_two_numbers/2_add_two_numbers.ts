@@ -37,7 +37,7 @@ const containTwoDigit = (list: number[]) => {
   }
 }
 
-function addTwoNumbers({ l1, l2 }: ListProps): number[] | string {
+function addTwoNumbers(l1: number[], l2: number[]): number[] | string {
   const error =
     (containTwoDigit(l1).hasError && containTwoDigit(l1)) ||
     (containTwoDigit(l2).hasError && containTwoDigit(l2))
@@ -59,11 +59,11 @@ function addTwoNumbers({ l1, l2 }: ListProps): number[] | string {
   return finalResult
 }
 
-const result_1 = addTwoNumbers({ l1: [2, 4, 3], l2: [5, 6, 4] })
-const result_2 = addTwoNumbers({ l1: [2], l2: [0] })
-const result_3 = addTwoNumbers({ l1: [9, 9, 9, 9, 9, 9, 9], l2: [9, 9, 9, 9] })
-const result_emptyArray = addTwoNumbers({ l1: [], l2: [1, 2, 3] })
-const result_doubleDigit = addTwoNumbers({ l1: [3, 1, 3], l2: [0, 1, 2] })
+const result_1 = addTwoNumbers([2, 4, 3], [5, 6, 4])
+const result_2 = addTwoNumbers([2], [0])
+const result_3 = addTwoNumbers([9, 9, 9, 9, 9, 9, 9], [9, 9, 9, 9])
+const result_emptyArray = addTwoNumbers([], [1, 2, 3])
+const result_doubleDigit = addTwoNumbers([3, 1, 3], [0, 1, 2])
 
 console.log({
   result_1,
