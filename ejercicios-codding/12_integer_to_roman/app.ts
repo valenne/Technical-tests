@@ -1,4 +1,4 @@
-const ROMANS_CONSTANTS: { [k: string]: string } = {
+export const ROMANS_CONSTANTS: { [k: string]: string } = {
   1: 'I',
   4: 'IV',
   5: 'V',
